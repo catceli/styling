@@ -5,14 +5,13 @@ import { Dimensions, StyleSheet, Text, View, AppRegistry } from 'react-native';
 export class FlexboxExamples extends Component {
   render(){
     return (
-      <View>
-      <View style={[ styles.container, { flex: .25 } ]}>
-        <View style = {[ styles.box, { alignSelf: 'flex-start', width: 100, height: 100, borderRadius: 50 } ]} />
+      <View style={[ styles.container ]}>
+        <View style = {[ styles.box, { flex: 1 } ]}>
+          <View style = {[ styles.circle, { alignSelf: 'flex-start', width: 100, height: 100, borderRadius: 50 } ]} />
+        </View>
+        <View style = {[ styles.box, { backgroundColor: '#8B4513', flex: 2.5 } ]}>
+        </View>
       </View>
-      <View style={[ styles.container, { flex: .75, backgroundColor: '#800080' } ]}>
-        <View style = {[ styles.box, { backgroundColor: '#B0E0E6' } ]} />
-      </View>
-    </View>
     );
   }
 }
@@ -20,13 +19,21 @@ export class FlexboxExamples extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF5EE',
-    flexDirection: 'row',
+    flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'stretch',
   },
   box: {
+    alignItems: 'center',
+    height: 50,
+    backgroundColor: '#e76e63'
+  },
+  circles: {
+    alignItems: 'center',
     width: 50,
-    backgroundColor: '#e76e63',
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: '#FFC0CB',
     margin: 10
   },
 });
