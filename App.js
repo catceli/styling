@@ -5,10 +5,12 @@ import { Dimensions, StyleSheet, Text, View, AppRegistry } from 'react-native';
 export class FlexboxExamples extends Component {
   render(){
     return (
-      <View style={ styles.container }>
-        <View style = { styles.box } />
-        <View style = {[ styles.box, { alignSelf: 'flex-end' } ]} />
-        <View style = { styles.box } />
+      <View>
+        <View style={[ styles.container ]}>
+          <View style = {[ styles.box ]} />
+          <View style = {[ styles.box ]} />
+          <View style = {[ styles.box ]} />
+        </View>
       </View>
     );
   }
@@ -17,16 +19,14 @@ export class FlexboxExamples extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#FFF5EE',
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'stretch',
   },
   box: {
     width: 50,
-    height: 50,
-    borderRadius: 25,
     backgroundColor: '#e76e63',
-    margin: 10,
+    margin: 10
   },
 });
 
