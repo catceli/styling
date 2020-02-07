@@ -7,9 +7,9 @@ export class FlexboxExamples extends Component {
     return (
       <View style={[ styles.container ]}>
         <View style = {[ styles.box, { flex: 1 } ]}>
-          <View style = {[ styles.circle, { alignSelf: 'flex-start', width: 100, height: 100, borderRadius: 50 } ]} />
+          <View style = {[ styles.circle ]} />
         </View>
-        <View style = {[ styles.box, { backgroundColor: '#8B4513', flex: 2.5 } ]}>
+        <View style = {[ styles.box, { backgroundColor: '#8B4513', flex: 2 } ]}>
         </View>
       </View>
     );
@@ -28,13 +28,13 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#e76e63'
   },
-  circles: {
-    alignItems: 'center',
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: '#FFC0CB',
-    margin: 10
+  circle: {
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    justifyContent: 'center',
+    backgroundColor: '#a829c2',
+    margin: 50
   },
 });
 
