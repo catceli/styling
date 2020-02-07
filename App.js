@@ -14,14 +14,14 @@ export class FlexboxExamples extends Component {
         <View style = {[ styles.box, { backgroundColor: '#8B4513', flex: 1.4 } ]}>
         </View>
         <View style = {[ styles.box, { backgroundColor: '#302bcc', flex: 0.6, flexDirection: 'row' } ]}>
-          <View style = {[ styles.button, { alignSelf: 'flex-start' } ]}>
+          <View style = {[ styles.button, { flex: 1 } ]}>
             <Button
               color = '#2bcc91'
               title = 'Back'
               onPress = {() => Alert.alert('hi')}
             />
           </View>
-          <View style = {[ styles.button, { alignSelf: 'flex-end' } ]}>
+          <View style = {[ styles.button, { flex: 1 } ]}>
             <Button
               color = '#2bcc91'
               title = 'Next'
@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   button: {
-    backgroundColor: '#174f44',
+    height: 60,
+    width: 60,
   }
 });
 
