@@ -1,16 +1,8 @@
 //On 1/29/2020: https://stackoverflow.com/questions/30404067/creating-css-circles-in-react-native
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, Text, View, AppRegistry, Button } from 'react-native';
+import { Dimensions, StyleSheet, Text, View, AppRegistry, Button, Alert } from 'react-native';
 
 export class FlexboxExamples extends Component {
-  constructor(props){
-    super(props);
-    this._pressedButton = this._pressedButton.bind(this);
-  }
-
-  _pressedButton(){
-    console.log('hi')
-  }
 
   render(){
     return (
@@ -21,12 +13,21 @@ export class FlexboxExamples extends Component {
         </View>
         <View style = {[ styles.box, { backgroundColor: '#8B4513', flex: 1.4 } ]}>
         </View>
-        <View style = {[ styles.box, { backgroundColor: '#302bcc', flex: 0.6 } ]}>
-          <Button
-            style = {[ styles.button, { alignSelf: 'flex-start' } ]}
-            title = 'Back'
-            onPress = {() => this._pressedButton}
-          />
+        <View style = {[ styles.box, { backgroundColor: '#302bcc', flex: 0.6, flexDirection: 'row' } ]}>
+          <View style = {[ styles.button, { alignSelf: 'flex-start' } ]}>
+            <Button
+              color = '#2bcc91'
+              title = 'Back'
+              onPress = {() => Alert.alert('hi')}
+            />
+          </View>
+          <View style = {[ styles.button, { alignSelf: 'flex-end' } ]}>
+            <Button
+              color = '#2bcc91'
+              title = 'Next'
+              onPress = {() => Alert.alert('hi')}
+            />
+          </View>
         </View>
       </View>
     );
@@ -61,9 +62,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   button: {
-    color: '#2bcc91',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#174f44',
   }
 });
 
