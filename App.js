@@ -1,6 +1,6 @@
 //On 1/29/2020: https://stackoverflow.com/questions/30404067/creating-css-circles-in-react-native
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, Text, View, AppRegistry, Button, Alert } from 'react-native';
+import { Dimensions, StyleSheet, Text, View, AppRegistry, Button, Alert, Touchable Highlight } from 'react-native';
 
 export class FlexboxExamples extends Component {
 
@@ -21,12 +21,10 @@ export class FlexboxExamples extends Component {
               onPress = {() => Alert.alert('hi')}
             />
           </View>
-          <View style = {[ styles.button, { flex: 1 } ]}>
-            <Button
-              color = '#2bcc91'
-              title = 'Next'
-              onPress = {() => Alert.alert('hi')}
-            />
+          <TouchableHighlight
+            style = {[ styles.button, { flex: 1 } ]}
+            onPress = {() => Alert.alert('hi')}>
+            <Text>Next</Text>
           </View>
         </View>
       </View>
@@ -62,8 +60,9 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   button: {
-    height: 60,
-    width: 60,
+    height: 100,
+    width: 100,
+    backgroundColor: '#2bcc91',
   }
 });
 
