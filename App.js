@@ -1,34 +1,54 @@
-//On 1/29/2020: https://stackoverflow.com/questions/30404067/creating-css-circles-in-react-native
-import React, { Component } from 'react';
-import { Dimensions, StyleSheet, Text, View, AppRegistry } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableHighlight, Flatlist, Alert } from 'react-native';
 
-export class FlexboxExamples extends Component {
-  render(){
+export default class Grid1 extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      defaultStory: null,
+      data: [
+        {'id': 0, 'image': require('./sky.png')},
+        {'id': 1, 'image': require('./sky.png')},
+        {'id': 2, 'image': require('./sky.png')},
+        {'id': 3, 'image': require('./sky.png')},
+        {'id': 4, 'image': require('./sky.png')}
+      ],
+    }
+  }
+
+  render() {
     return (
-      <View style={ styles.container }>
-        <View style = { styles.box } />
-        <View style = {[ styles.box, { alignSelf: 'flex-end' } ]} />
-        <View style = { styles.box } />
-      </View>
+      <ScrollView>
+      {
+        this.state.data.map((item, index) => (
+           <View key = {item.id} style = {styles.circle}>
+              <TouchableHighlight onPress={() => Alert.alert("Hi")}>
+                <Image
+                  style={{width: 300, height: 400, flex: 1, borderRadius: 90,}}
+                  source={item.image}
+                />
+              </TouchableHighlight>
+           </View>
+      ))}
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+   circle: {
+     width: 180,
+     height: 180,
+     borderRadius: 90,
+     flexDirection: 'row',
+     justifyContent: 'space-between',
+     alignItems: 'center',
+     padding: 30,
+     margin: 2,
+   },
   container: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  box: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: '#e76e63',
-    margin: 10,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
   },
 });
-
-export default FlexboxExamples;
-AppRegistry.registerComponent('FlexboxExamples', () => FlexboxExamples);
