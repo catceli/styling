@@ -1,4 +1,3 @@
-//On 1/29/2020: https://stackoverflow.com/questions/30404067/creating-css-circles-in-react-native
 import React, { Component } from 'react';
 import { Dimensions, StyleSheet, Text, View, AppRegistry, Button, Alert, TouchableHighlight } from 'react-native';
 
@@ -42,6 +41,7 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#e76e63',
   },
+  //https://stackoverflow.com/questions/30404067/creating-css-circles-in-react-native
   circle: {
     width: 180,
     height: 180,
