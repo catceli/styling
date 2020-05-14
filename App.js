@@ -46,7 +46,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 50,
   },
+<<<<<<< HEAD
   ////On 1/29/2020: https://stackoverflow.com/questions/30404067/creating-css-circles-in-react-native
+=======
+>>>>>>> 6e42eac8a9cb0261003753c5d96ac3d9b3a2b769
   circle: {
     width: 180,
     height: 180,
