@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, Text, View, AppRegistry, Button, Alert, TouchableHighlight } from 'react-native';
+import { Dimensions, StyleSheet, Text, View, AppRegistry, Button, Alert, TouchableHighlight, Image } from 'react-native';
 
 export class FlexboxExamples extends Component {
 
@@ -7,17 +7,23 @@ export class FlexboxExamples extends Component {
     return (
       <View style={[ styles.container ]}>
         <View style = {[ styles.box, { flex: 1 } ]}>
-          <View style = {[ styles.circle ]} />
+          <View style = {[ styles.circle ]}>
+            <Image
+              source={require('./sky.png')}
+              style={{ flex: 1, width: null, height: null, borderRadius: 90 }}
+              resizeMode='cover'
+            />
+          </View>
           <Text style = {[ styles.text ]}>Name Here</Text>
         </View>
-        <View style = {[ styles.box, { backgroundColor: '#8B4513', flex: 1.4 } ]}>
+        <View style = {[ styles.box, { flex: 1.4 } ]}>
         </View>
-        <View style = {[ styles.box, { backgroundColor: '#302bcc', flex: 0.6, flexDirection: 'row' } ]}>
-        <TouchableHighlight
-          style = {[ styles.button, { flex: 1 } ]}
-          onPress = {() => Alert.alert('hi')}>
-          <Text style = {[ styles.buttonText ]}>Back</Text>
-        </TouchableHighlight>
+        <View style = {[ styles.box, { flex: 0.6, flexDirection: 'row' } ]}>
+          <TouchableHighlight
+            style = {[ styles.button, { flex: 1 } ]}
+            onPress = {() => Alert.alert('hi')}>
+            <Text style = {[ styles.buttonText ]}>Back</Text>
+          </TouchableHighlight>
           <TouchableHighlight
             style = {[ styles.button, { flex: 1 } ]}
             onPress = {() => Alert.alert('hi')}>
@@ -39,17 +45,15 @@ const styles = StyleSheet.create({
   box: {
     alignItems: 'center',
     height: 50,
-    backgroundColor: '#e76e63',
   },
-  //https://stackoverflow.com/questions/30404067/creating-css-circles-in-react-native
   circle: {
     width: 180,
     height: 180,
     borderRadius: 90,
     justifyContent: 'center',
-    backgroundColor: '#a829c2',
     marginTop: 60,
     marginBottom: 20,
+    backgroundColor: 'red'
   },
   text: {
     color: '#100812',
@@ -60,10 +64,9 @@ const styles = StyleSheet.create({
   button: {
     alignContent: 'space-around',
     margin: 30,
-    backgroundColor: '#2bcc91',
   },
   buttonText: {
-    backgroundColor: 'blue',
+    backgroundColor: '#4169E1',
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
