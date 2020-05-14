@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { Dimensions, StyleSheet, Text, View, AppRegistry, Button, Alert, TouchableHighlight, Image } from 'react-native';
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
 function Home({ navigation }){
   return(
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home</Text>
+      <Button
+        title="Go to Second Page"
+        onPress={() => navigation.navigate('SecondPage')}
+      />
     </View>
   );
 }
@@ -19,33 +17,24 @@ function Home({ navigation }){
 function SecondPage({ navigation }){
   return(
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>SecondPage</Text>
+      <Button
+        title="Go back"
+        onPress={() => navigation.goBack()}
+      />
     </View>
   );
 }
 
-function CustomDrawerContent(props){
-  return(
-    <DrawerContentScrollView{...props}>
-      <DrawerItemList {...props} />
-      <DrawerItem
-        label="Close Drawer"
-        onPress={()=> props.navigation.closeDrawer()}
-      />
-    </DrawerContentScrollView>
-  );
-}
-
-const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   render(){
     return (
       <NavigationContainer>
-        <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
-          <Drawer.Screen name="Home" component={Home} />
-          <Drawer.Screen name="SecondPage" component={SecondPage} />
-        </Drawer.Navigator>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="SecondPage" component={SecondPage} />
+        </Stack.Navigator>
       </NavigationContainer>
     );
   }
