@@ -8,21 +8,21 @@ export class FlexboxExamples extends Component {
       <View style={[ styles.container ]}>
         <View style = {[ styles.box, { flex: 1 } ]}>
           <View style = {[ styles.circle ]} />
-          <Text style = {[ styles.text ]}>Name Here</Text>
-        </View>
-        <View style = {[ styles.box, { backgroundColor: '#8B4513', flex: 1.4 } ]}>
-        </View>
-        <View style = {[ styles.box, { backgroundColor: '#302bcc', flex: 0.6, flexDirection: 'row' } ]}>
-        <TouchableHighlight
-          style = {[ styles.button, { flex: 1 } ]}
-          onPress = {() => Alert.alert('hi')}>
-          <Text style = {[ styles.buttonText ]}>Back</Text>
-        </TouchableHighlight>
-          <TouchableHighlight
-            style = {[ styles.button, { flex: 1 } ]}
-            onPress = {() => Alert.alert('hi')}>
-            <Text style = {[ styles.buttonText ]}>Next</Text>
-          </TouchableHighlight>
+            <Text style = {[ styles.text ]}>Name Here</Text>
+          </View>
+          <View style = {[ styles.box, { backgroundColor: '#8B4513', flex: 1.4 } ]}>
+          </View>
+          <View style = {[ styles.box, { backgroundColor: '#302bcc', flex: 0.6, flexDirection: 'row' } ]}>
+            <TouchableHighlight
+              style = {[ styles.button, { flex: 1 } ]}
+              onPress = {() => Alert.alert('hi')}>
+                <Text style = {[ styles.buttonText ]}>Back</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style = {[ styles.button, { flex: 1 } ]}
+              onPress = {() => Alert.alert('hi')}>
+                <Text style = {[ styles.buttonText ]}>Next</Text>
+            </TouchableHighlight>
         </View>
       </View>
     );
