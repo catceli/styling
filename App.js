@@ -32,10 +32,6 @@ function SecondPage({ navigation }){
   return(
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Button
-        title="Go to Third Page"
-        onPress={() => navigation.navigate('ThirdPage')}
-      />
-      <Button
         title="Go back"
         onPress={() => navigation.goBack()}
       />
@@ -71,11 +67,13 @@ const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
 function StackNav(){
-  <Stack.Navigator>
-    <Stack.Screen name="Home" component={Home} />
-    <Stack.Screen name="SecondPage" component={SecondPage} />
-    <Stack.Screen name="ThirdPage" component={ThirdPage} />
-  </Stack.Navigator>
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="SecondPage" component={SecondPage} />
+      <Stack.Screen name="ThirdPage" component={ThirdPage} />
+    </Stack.Navigator>
+  );
 }
 
 export default class App extends React.Component {
@@ -84,6 +82,7 @@ export default class App extends React.Component {
       <NavigationContainer>
         <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
           <Drawer.Screen name="Home" component={Home} />
+          <Drawer.Screen name="SecondPage" component={SecondPage} />
           <Drawer.Screen name="Stack" component={StackNav} />
         </Drawer.Navigator>
       </NavigationContainer>
