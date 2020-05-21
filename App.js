@@ -66,7 +66,11 @@ function CustomDrawerContent(props){
   );
 }
 
-function Stack(){
+const Drawer = createDrawerNavigator();
+
+const Stack = createStackNavigator();
+
+function StackNav(){
   <Stack.Navigator>
     <Stack.Screen name="Home" component={Home} />
     <Stack.Screen name="SecondPage" component={SecondPage} />
@@ -74,19 +78,14 @@ function Stack(){
   </Stack.Navigator>
 }
 
-const Drawer = createDrawerNavigator();
-
-const Stack = createStackNavigator();
-
 export default class App extends React.Component {
   render(){
     return (
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="SecondPage" component={SecondPage} />
-          <Stack.Screen name="ThirdPage" component={ThirdPage} />
-        </Stack.Navigator>
+        <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
+          <Drawer.Screen name="Home" component={Home} />
+          <Drawer.Screen name="Stack" component={StackNav} />
+        </Drawer.Navigator>
       </NavigationContainer>
     );
   }
