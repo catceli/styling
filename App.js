@@ -66,6 +66,14 @@ function CustomDrawerContent(props){
   );
 }
 
+function Stack(){
+  <Stack.Navigator>
+    <Stack.Screen name="Home" component={Home} />
+    <Stack.Screen name="SecondPage" component={SecondPage} />
+    <Stack.Screen name="ThirdPage" component={ThirdPage} />
+  </Stack.Navigator>
+}
+
 const Drawer = createDrawerNavigator();
 
 const Stack = createStackNavigator();
