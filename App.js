@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Dimensions, StyleSheet, Text, View, AppRegistry, Button, Alert, TouchableHighlight, Image } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Home from "./Home";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -17,14 +18,23 @@ import { NavigationContainer } from '@react-navigation/native';
 //   </Drawer.Navigator>
 // </NavigationContainer>
 
-function Home({ navigation }){
+// function Home({ navigation }){
+//   return(
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       <Button
+//         title="Go to Second Page"
+//         onPress={() => navigation.navigate('SecondPage')}
+//       />
+//     </View>
+//   );
+// }
+
+function Homes({ route, navigation }){
   return(
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Button
-        title="Go to Second Page"
-        onPress={() => navigation.navigate('SecondPage')}
-      />
-    </View>
+    <Home
+      navigation={navigation}
+      route={route}
+    />
   );
 }
 
@@ -69,7 +79,7 @@ const Stack = createStackNavigator();
 function StackNav(){
   return(
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home" component={Homes} />
       <Stack.Screen name="SecondPage" component={SecondPage} />
       <Stack.Screen name="ThirdPage" component={ThirdPage} />
     </Stack.Navigator>
@@ -81,7 +91,7 @@ export default class App extends React.Component {
     return (
       <NavigationContainer>
         <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
-          <Drawer.Screen name="Home" component={Home} />
+          <Drawer.Screen name="Home" component={Home} initialParams={{name: "home"}}/>
           <Drawer.Screen name="SecondPage" component={SecondPage} />
           <Drawer.Screen name="Stack" component={StackNav} />
         </Drawer.Navigator>
