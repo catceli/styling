@@ -91,7 +91,7 @@ export default class App extends React.Component {
     return (
       <NavigationContainer>
         <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
-          <Drawer.Screen name="Home" component={Home} initialParams={{name: "home"}}/>
+          <Drawer.Screen name="Home" component={Home} initialParams={{name: "i did it!"}}/>
           <Drawer.Screen name="SecondPage" component={SecondPage} />
           <Drawer.Screen name="Stack" component={StackNav} />
         </Drawer.Navigator>
@@ -99,6 +99,8 @@ export default class App extends React.Component {
     );
   }
 }
+
+// in home: initialParams={{name: "home"}}
 //
 // export default class App extends React.Component {
 //   render(){

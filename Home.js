@@ -12,8 +12,9 @@ import { NavigationContainer } from '@react-navigation/native';
 export default class Home extends React.Component {
   constructor(props){
     super(props);
+    var { name } = this.props.route.params;
     this.state={
-      name: this.props.route.params,
+      name: name,
     }
   }
   render() {
